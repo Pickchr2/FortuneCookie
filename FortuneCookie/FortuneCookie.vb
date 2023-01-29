@@ -13,6 +13,8 @@ Module FortuneCookie
     Sub Main(args As String())
         Const NUMBEROFFORTUNES As Integer = 10
         Dim fortuneList(NUMBEROFFORTUNES) As String
+        Dim chosenFortune As Integer
+        Dim randomNumber As New Random()
 
         fortuneList(0) = "Some days you are the pigeon, some days you are the statue. Today, bring an umbrella."
         fortuneList(1) = "To truly find yourself you should play hide and seek alone."
@@ -25,5 +27,7 @@ Module FortuneCookie
         fortuneList(8) = "As long as you don’t sign up for anything new, you’ll do fine."
         fortuneList(9) = "This cookie is never going to give you up, never going to let you down."
 
+        chosenFortune = CInt(randomNumber.Next(NUMBEROFFORTUNES))
+        Console.WriteLine(fortuneList(chosenFortune))
     End Sub
 End Module
