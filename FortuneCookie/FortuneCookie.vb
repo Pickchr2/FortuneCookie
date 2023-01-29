@@ -6,6 +6,7 @@
 
 Option Explicit On
 Option Strict On
+Option Compare Text
 
 Imports System
 
@@ -15,6 +16,8 @@ Module FortuneCookie
         Dim fortuneList(NUMBEROFFORTUNES) As String
         Dim chosenFortune As Integer
         Dim randomNumber As New Random()
+        Dim userQuits = False
+        Dim userInput = ""
 
         fortuneList(0) = "Some days you are the pigeon, some days you are the statue. Today, bring an umbrella."
         fortuneList(1) = "To truly find yourself you should play hide and seek alone."
@@ -27,7 +30,17 @@ Module FortuneCookie
         fortuneList(8) = "As long as you don’t sign up for anything new, you’ll do fine."
         fortuneList(9) = "This cookie is never going to give you up, never going to let you down."
 
-        chosenFortune = CInt(randomNumber.Next(NUMBEROFFORTUNES))
-        Console.WriteLine(fortuneList(chosenFortune))
+        Do Until userQuits = True
+            Console.WriteLine("Would you like me to read your fortune? Enter " & Chr(34) & "Y" & Chr(34) & " for yes, or any other key to quit.")
+            userInput = Console.ReadLine()
+            Select Case userInput
+                Case "Y"
+                    chosenFortune = CInt(randomNumber.Next(NUMBEROFFORTUNES))
+                    Console.WriteLine(fortuneList(chosenFortune))
+                    Console.WriteLine("")
+                Case Else
+                    userQuits = True
+            End Select
+        Loop
     End Sub
 End Module
