@@ -16,8 +16,8 @@ Module FortuneCookie
         Dim fortuneList(NUMBEROFFORTUNES) As String
         Dim chosenFortune As Integer
         Dim randomNumber As New Random()
-        Dim userQuits = False
-        Dim userInput = ""
+        Dim userInput As String
+        Dim userQuits As Boolean = False
 
         fortuneList(0) = "Some days you are the pigeon, some days you are the statue. Today, bring an umbrella."
         fortuneList(1) = "To truly find yourself you should play hide and seek alone."
@@ -35,6 +35,7 @@ Module FortuneCookie
             userInput = Console.ReadLine()
             Select Case userInput
                 Case "Y"
+                    Console.WriteLine("")
                     chosenFortune = CInt(randomNumber.Next(NUMBEROFFORTUNES))
                     Console.WriteLine(fortuneList(chosenFortune))
                     Console.WriteLine("")
